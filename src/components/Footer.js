@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Container, Typography, Grid, Link } from "@mui/material";
 
+
+
+
 function Footer() {
+  useEffect(() => {
+    const smartsuppScript = document.createElement("script");
+    smartsuppScript.type = "text/javascript";
+    smartsuppScript.async = true;
+    smartsuppScript.src = "https://www.smartsuppchat.com/loader.js?";
+    smartsuppScript.onload = () => {
+      window._smartsupp = window._smartsupp || {};
+      window._smartsupp.key = "7fa94ee410290bcbbc3507e34b3ea27283e34211";
+    };
+    document.body.appendChild(smartsuppScript);
+    return () => {
+      document.body.removeChild(smartsuppScript);
+    };
+  }, []);
   return (
     <Box
       component="footer"
