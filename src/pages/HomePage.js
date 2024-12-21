@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -9,11 +9,35 @@ import {
   CardContent,
   CardMedia,
 } from "@mui/material";
-import { FaHome, FaBuilding, FaIndustry, FaSchool, FaHospital, FaGoogle, FaAws, FaMicrosoft } from "react-icons/fa";
+import {
+  FaHome,
+  FaBuilding,
+  FaIndustry,
+  FaSchool,
+  FaHospital,
+  FaGoogle,
+  FaAws,
+  FaMicrosoft,
+} from "react-icons/fa";
 import CustomerSlider from "../components/CustomerSlider";
 import QuoteForm from "../components/QuoteForm";
 
 function HomePage() {
+  useEffect(() => {
+    const smartsuppScript = document.createElement("script");
+    smartsuppScript.type = "text/javascript";
+    smartsuppScript.async = true;
+    smartsuppScript.src = "https://www.smartsuppchat.com/loader.js?";
+    smartsuppScript.onload = () => {
+      window._smartsupp = window._smartsupp || {};
+      window._smartsupp.key = "7fa94ee410290bcbbc3507e34b3ea27283e34211";
+    };
+    document.body.appendChild(smartsuppScript);
+    return () => {
+      document.body.removeChild(smartsuppScript);
+    };
+  }, []);
+
   const environments = [
     { name: "Residential", icon: <FaHome size={40} className="text-primary" /> },
     { name: "Office", icon: <FaBuilding size={40} className="text-success" /> },
@@ -23,8 +47,8 @@ function HomePage() {
   ];
 
   const partners = [
-    { name: "AMX", image: "/amx.jpeg"},
-    { name: "Crestron", image: "/crestron.jpeg" },
+    { name: "AMX", image: "/amx.jpeg" },
+    { name: "Crestron", image: "crestron.jpeg" },
     { name: "Google", icon: <FaGoogle size={50} className="text-warning" /> },
     { name: "AWS", icon: <FaAws size={50} className="text-success" /> },
     { name: "Microsoft", icon: <FaMicrosoft size={50} className="text-info" /> },
@@ -43,15 +67,22 @@ function HomePage() {
         <Grid container spacing={4} sx={{ mt: 2 }}>
           {environments.map((env) => (
             <Grid item xs={12} sm={6} md={4} key={env.name}>
-              <Link to={`/services/${env.name.toLowerCase()}`} style={{ textDecoration: "none" }}>
-                <Card sx={{ textAlign: "center", boxShadow: 3, transition: "transform 0.3s", '&:hover': { transform: "scale(1.05)" } }}>
-                  <CardContent>
-                    {env.icon}
-                    <Typography variant="h6" color="textPrimary" mt={2}>
-                      {env.name}
-                    </Typography>
-                  </CardContent>
-                </Card>
+               <Link to={`/services/${env.name.toLowerCase()}`} className="text-decoration-none">
+              <Card
+                sx={{
+                  textAlign: "center",
+                  boxShadow: 3,
+                  transition: "transform 0.3s",
+                  '&:hover': { transform: "scale(1.05)" },
+                }}
+              >
+                <CardContent>
+                  {env.icon}
+                  <Typography variant="h6" color="textPrimary" mt={2}>
+                    {env.name}
+                  </Typography>
+                </CardContent>
+              </Card>
               </Link>
             </Grid>
           ))}
@@ -78,7 +109,12 @@ function HomePage() {
               ) : (
                 <Box sx={{ textAlign: "center" }}>{partner.icon}</Box>
               )}
-              <Typography variant="body2" color="textPrimary" mt={1} textAlign="center">
+              <Typography
+                variant="body2"
+                color="textPrimary"
+                mt={1}
+                textAlign="center"
+              >
                 {partner.name}
               </Typography>
             </Grid>
