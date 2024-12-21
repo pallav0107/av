@@ -11,6 +11,7 @@ function Footer() {
     smartsuppScript.async = true;
     smartsuppScript.src = "https://www.smartsuppchat.com/loader.js?";
     smartsuppScript.onload = () => {
+      console.log("Smartsupp script loaded.");
       window._smartsupp = window._smartsupp || {};
       window._smartsupp.key = "7fa94ee410290bcbbc3507e34b3ea27283e34211";
     };
