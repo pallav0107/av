@@ -1,37 +1,89 @@
 import React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Box,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
 function NavigationBar() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const environments = [
+    "Residential",
+    "Office",
+    "Factory",
+    "School",
+    "Hospital",
+  ];
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
-      <div className="container">
-        <Link className="navbar-brand text-primary" to="/">
-          AV k-Solutions
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+    <AppBar position="static">
+      <Toolbar>
+        <Typography
+          variant="h6"
+          component={Link}
+          to="/"
+          sx={{ flexGrow: 1, textDecoration: "none", color: "inherit" }}
         >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            {["Residential", "Office", "Factory", "School", "Hospital"].map((env) => (
-              <li className="nav-item" key={env}>
-                <Link className="nav-link text-dark" to={`/services/${env.toLowerCase()}`}>
-                  {env}
-                </Link>
-              </li>
+          AV k-Solutions
+        </Typography>
+
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          {environments.map((env) => (
+            <Button
+              key={env}
+              component={Link}
+              to={`/services/${env.toLowerCase()}`}
+              color="inherit"
+            >
+              {env}
+            </Button>
+          ))}
+        </Box>
+
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleMenuOpen}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+          >
+            {environments.map((env) => (
+              <MenuItem
+                key={env}
+                component={Link}
+                to={`/services/${env.toLowerCase()}`}
+                onClick={handleMenuClose}
+              >
+                {env}
+              </MenuItem>
             ))}
-          </ul>
-        </div>
-      </div>
-    </nav>
+          </Menu>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 }
 

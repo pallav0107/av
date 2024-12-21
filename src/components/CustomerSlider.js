@@ -1,6 +1,14 @@
 import React from "react";
 import Slider from "react-slick";
-import { FaLandmark, FaHospitalAlt, FaShoppingCart, FaHome, FaSchool, FaProcedures } from "react-icons/fa";
+import { Box, Typography } from "@mui/material";
+import {
+  FaLandmark,
+  FaHospitalAlt,
+  FaShoppingCart,
+  FaHome,
+  FaSchool,
+  FaProcedures,
+} from "react-icons/fa";
 
 const customerIcons = [
   {
@@ -45,16 +53,18 @@ function CustomerSlider() {
   };
 
   return (
-    <div className="customer-slider mt-5">
+    <Box mt={5} className="customer-slider">
       <Slider {...settings}>
         {customerIcons.map((customer, index) => (
-          <div key={index} className="text-center">
-            <div className="icon-wrapper mb-2">{customer.icon}</div>
-            <p className="mt-2 text-muted">{customer.name}</p>
-          </div>
+          <Box key={index} textAlign="center">
+            <Box mb={2}>{customer.icon}</Box>
+            <Typography variant="body2" color="textSecondary">
+              {customer.name}
+            </Typography>
+          </Box>
         ))}
       </Slider>
-    </div>
+    </Box>
   );
 }
 

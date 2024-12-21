@@ -100,11 +100,11 @@ function HomePage() {
           {partners.map((partner) => (
             <Grid item xs={6} sm={4} md={2} key={partner.name}>
               {partner.image ? (
-                <CardMedia
+                  <CardMedia
                   component="img"
                   src={partner.image}
                   alt={partner.name}
-                  sx={{ maxHeight: 60, mx: "auto" }}
+                  sx={{ maxHeight: 50, maxWidth: 100, mx: "auto", objectFit: "contain" }}
                 />
               ) : (
                 <Box sx={{ textAlign: "center" }}>{partner.icon}</Box>
