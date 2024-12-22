@@ -40,7 +40,7 @@ function QuoteForm() {
   };
   return (
     <div className="card mt-5 p-4 shadow-lg bg-light">
-      <h2 className="text-center text-primary mb-4">Request a Quote</h2>
+      <h2 className="text-center text-primary mb-4">Request a Quote/Demo</h2>
       <form onSubmit={handleSubmit}>
         <div className="row mb-3 align-items-center">
           <label htmlFor="name" className="col-sm-3 col-form-label text-end">

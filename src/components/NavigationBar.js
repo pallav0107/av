@@ -41,7 +41,7 @@ function NavigationBar() {
           to="/"
           sx={{ flexGrow: 1, textDecoration: "none", color: "inherit" }}
         >
-          AV k-Solutions
+          Audio Visual Solutions
         </Typography>
 
         <Box sx={{ display: { xs: "none", md: "block" } }}>

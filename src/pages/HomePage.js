@@ -57,7 +57,25 @@ function HomePage() {
   ];
 
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh">
+    <Box sx={{ position: "relative", minHeight: "100vh" }}>
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: -1,
+        }}
+      >
+        <source src="/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <Container component="main" sx={{ textAlign: "center", flexGrow: 1, mt: 5 }}>
         <Typography variant="h3" color="primary" gutterBottom>
           Welcome to our AV Solutions
