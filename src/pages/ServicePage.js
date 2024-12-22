@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import ServiceCard from "../components/ServiceCard";
+import { Box } from "@mui/material";
 import { FaVideo, FaLightbulb, FaNetworkWired, FaMicrophoneAlt, FaChalkboardTeacher, FaBell, FaClinicMedical, FaProjectDiagram, FaBroadcastTower, FaShieldAlt, FaWifi, FaMusic, FaClipboardList } from "react-icons/fa";
 
 const servicesData = {
@@ -401,16 +402,36 @@ function ServicePage() {
   const services = servicesData[environment.toLowerCase()] || [];
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-primary text-center text-capitalize">{environment} Services</h1>
-      <div className="row">
-        {services.map((service, index) => (
-          <div className="col-md-4 col-sm-6 mb-4" key={index}>
-            <ServiceCard service={service} />
-          </div>
-        ))}
+    <Box sx={{ position: "relative", minHeight: "100vh" }}>
+      <div className="container mt-5">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: -1,
+          }}
+        >
+          <source src="/7065796-uhd_2160_3840_24fps.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <h1 className="text-primary text-center text-capitalize">{environment} Services</h1>
+        <div className="row">
+          {services.map((service, index) => (
+            <div className="col-md-4 col-sm-6 mb-4" key={index}>
+              <ServiceCard service={service} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </Box>
   );
 }
 
