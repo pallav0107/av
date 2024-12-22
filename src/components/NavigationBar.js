@@ -29,6 +29,7 @@ function NavigationBar() {
     "Factory",
     "School",
     "Hospital",
+    "Shops"
   ];
 
   return (

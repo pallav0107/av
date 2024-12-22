@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import ServiceCard from "../components/ServiceCard";
-import { FaVideo, FaLightbulb, FaNetworkWired, FaMicrophoneAlt, FaChalkboardTeacher, FaBell, FaClinicMedical, FaProjectDiagram, FaBroadcastTower, FaShieldAlt, FaWifi } from "react-icons/fa";
+import { FaVideo, FaLightbulb, FaNetworkWired, FaMicrophoneAlt, FaChalkboardTeacher, FaBell, FaClinicMedical, FaProjectDiagram, FaBroadcastTower, FaShieldAlt, FaWifi, FaMusic, FaClipboardList } from "react-icons/fa";
 
 const servicesData = {
   residential: [
@@ -329,7 +329,71 @@ const servicesData = {
       icon: <FaShieldAlt size={50} className="text-secondary" />,
     },
   ],
-
+  shops: [
+    {
+      name: "Digital Signage",
+      description: "Display promotional content and offers to attract customers.",
+      amxDevices: "AMX SVSI N-Series, Precis DSP",
+      crestronDevices: "Crestron DM NVX, 4K DigitalMedia",
+      icon: <FaVideo size={50} className="text-success" />,
+    },
+    {
+      name: "Background Music Systems",
+      description: "Create an inviting atmosphere with curated background music.",
+      amxDevices: "AMX Precis DSP",
+      crestronDevices: "Crestron Saros Speakers, Sonnex Audio",
+      icon: <FaMusic size={50} className="text-primary" />,
+    },
+    {
+      name: "Security Camera Integration",
+      description: "Monitor your shop with high-quality surveillance solutions.",
+      amxDevices: "AMX Surveillance Manager",
+      crestronDevices: "Crestron DM NVX Encoder/Decoder",
+      icon: <FaBroadcastTower size={50} className="text-danger" />,
+    },
+    {
+      name: "Interactive Display Systems",
+      description: "Engage customers with interactive touch displays.",
+      amxDevices: "AMX Modero G5 Touch Panels",
+      crestronDevices: "Crestron TS-1070 Touch Screen",
+      icon: <FaChalkboardTeacher size={50} className="text-warning" />,
+    },
+    {
+      name: "Energy Management Systems",
+      description: "Optimize energy consumption to reduce operational costs.",
+      amxDevices: "AMX Energy Manager",
+      crestronDevices: "Crestron Smart Energy",
+      icon: <FaShieldAlt size={50} className="text-info" />,
+    },
+    {
+      name: "Public Announcement Systems",
+      description: "Broadcast announcements effectively across the shop.",
+      amxDevices: "AMX NetLinx Controllers",
+      crestronDevices: "Crestron Fusion Audio Solutions",
+      icon: <FaBell size={50} className="text-secondary" />,
+    },
+    {
+      name: "Wi-Fi and Networking",
+      description: "Provide seamless connectivity for customers and staff.",
+      amxDevices: "AMX Network Manager",
+      crestronDevices: "Crestron Enterprise Wi-Fi Solutions",
+      icon: <FaWifi size={50} className="text-primary" />,
+    },
+    {
+      name: "Queue Management Systems",
+      description: "Improve customer experience with efficient queue handling.",
+      amxDevices: "AMX Modero Queue Panels",
+      crestronDevices: "Crestron Queue Management Systems",
+      icon: <FaClipboardList size={50} className="text-warning" />,
+    },
+    {
+      name: "Lighting Control Systems",
+      description: "Enhance shop ambiance with dynamic lighting control.",
+      amxDevices: "AMX NetLinx Lighting Control",
+      crestronDevices: "Crestron Horizon Keypads",
+      icon: <FaLightbulb size={50} className="text-success" />,
+    },
+  ]
 };
 
 function ServicePage() {

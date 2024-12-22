@@ -18,6 +18,7 @@ import {
   FaGoogle,
   FaAws,
   FaMicrosoft,
+  FaShoppingCart
 } from "react-icons/fa";
 import CustomerSlider from "../components/CustomerSlider";
 import QuoteForm from "../components/QuoteForm";
@@ -44,14 +45,15 @@ function HomePage() {
     { name: "Factory", icon: <FaIndustry size={40} className="text-danger" /> },
     { name: "School", icon: <FaSchool size={40} className="text-warning" /> },
     { name: "Hospital", icon: <FaHospital size={40} className="text-info" /> },
+    { name: "Shops", icon: <FaShoppingCart size={40} className="text-secondary" /> },
   ];
 
   const partners = [
-    { name: "AMX", image: "/amx.jpeg" },
-    { name: "Crestron", image: "crestron.jpeg" },
-    { name: "Google", icon: <FaGoogle size={50} className="text-warning" /> },
-    { name: "AWS", icon: <FaAws size={50} className="text-success" /> },
-    { name: "Microsoft", icon: <FaMicrosoft size={50} className="text-info" /> },
+    { name: "", image: "/amx.jpeg" },
+    { name: "", image: "crestron.jpeg" },
+    { name: "", icon: <FaGoogle size={50} className="text-warning" /> },
+    { name: "", icon: <FaAws size={50} className="text-success" /> },
+    { name: "", icon: <FaMicrosoft size={50} className="text-info" /> },
   ];
 
   return (
