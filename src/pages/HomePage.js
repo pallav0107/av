@@ -73,7 +73,7 @@ function HomePage() {
           zIndex: -1,
         }}
       >
-        <source src="/background.mp4" type="video/mp4" />
+        <source src="/7065796-uhd_2160_3840_24fps.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <Container component="main" sx={{ textAlign: "center", flexGrow: 1, mt: 5 }}>
