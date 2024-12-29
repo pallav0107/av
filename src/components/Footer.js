@@ -38,7 +38,7 @@ function Footer() {
             Australian Company Number: 645 377 091
           </Typography>
           <Typography variant="body2" align="center" mt={1}>
-            Email: <Link href="mailto:helo@ksolutions.ai" color="inherit">helo@ksolutions.ai</Link>
+            Email: <Link href="mailto:hello@ksolutions.ai" color="inherit">hello@ksolutions.ai</Link>
           </Typography>
           <Typography variant="body2" align="center" mt={1}>
             Phone: <Link href="tel:+61416283705" color="inherit">+61 416 283 705</Link>
